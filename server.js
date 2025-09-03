@@ -3,6 +3,11 @@ import QRCode from "qrcode";
 
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Serve static files from the "public" folder
+app.use(express.static(path.join(process.cwd(), "public")));
+
 
 app.use(express.static("public"));
 app.use(express.json()); // for parsing JSON requests
@@ -20,6 +25,5 @@ app.post("/generate", async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
