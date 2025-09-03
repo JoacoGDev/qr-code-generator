@@ -1,5 +1,6 @@
 import express from "express";
 import QRCode from "qrcode";
+import path from "path";
 
 
 const app = express();
